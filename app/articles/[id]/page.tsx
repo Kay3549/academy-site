@@ -1,4 +1,5 @@
-import { React } from "react";
+import React from "react";
+
 
 type Article = { id: number; title: string; summary: string; content: string; };
 const dummyArticles: Article[] = [
