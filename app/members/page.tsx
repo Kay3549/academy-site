@@ -22,5 +22,6 @@ export default function MembersPage() {
         이 페이지는 멤버십이 있는 사용자만 접근할 수 있습니다.
       </p>
     </div>
+    
   );
 }

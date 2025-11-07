@@ -6,10 +6,26 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`회원가입 시도: ${email}`);
+  
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+  
+    const data = await res.json();
+  
+    if (!res.ok) {
+      alert(data.error);
+      return;
+    }
+  
+    alert("회원가입 성공!");
+    window.location.href = "/auth/login";
   };
+  
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-gray-50">
