@@ -35,6 +35,7 @@ export default function RootLayout({
               <Link href="/members">멤버 전용</Link>
               <Link href="/admin">관리자</Link>
               <Link href="/auth/login">로그인</Link>
+              <Link href="/auth/register">회원가입</Link>
             </div>
           </nav>
 

@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     }
 
     // 이미 존재하는 이메일 체크
-    const existingUser = await prisma.members.findUnique({
+    const existingUser = await prisma.users.findUnique({
       where: { email },
     });
 
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await prisma.members.create({
+    const user = await prisma.users.create({
       data: { email, password: hashedPassword },
     });
 
